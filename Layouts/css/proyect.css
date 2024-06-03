@@ -1,0 +1,632 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+*::selection {
+  background-color: #294d61;
+  color: white;
+  opacity: 10%;
+}
+
+nav img {
+  width: 5%;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+body::-webkit-scrollbar {
+  background-color: #101221;
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #303661;
+}
+
+body {
+  background-color: #072e33;
+  color: white;
+  max-width: 100%;
+  min-width: 500px;
+}
+
+.loader {
+  display: grid;
+  place-items: center;
+  margin: auto;
+  margin-top: 15%;
+  background-color: black;
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform-origin: center;
+  transition: 1s;
+  border-radius: 50px;
+  box-shadow: inset 0px 0px 10px purple,
+    inset 5px 5px 12px rgba(44, 0, 114, 0.8),
+    inset 8px 8px 1px rgba(160, 120, 255, 0.7),
+    0px 0px 1px rgba(160, 120, 255, 0.6);
+  animation: 1.2s linear infinite 0s running first682;
+}
+
+.loader div {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+
+#first {
+  transform: rotate(90deg);
+}
+
+#first::before {
+  --width: 1em;
+  --height: 1em;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - var(--width) / 2);
+  width: 1em;
+  height: 1em;
+  background-color: rgb(44, 0, 114);
+  box-shadow: inset 5px 5px 10px rgb(160, 120, 255), 0px 0px 2px white;
+  border-radius: 50px;
+  animation: 0.8s ease-in 0s infinite running jump2;
+}
+
+#second {
+  transform: rotate(90deg);
+}
+
+#second::before {
+  --width: 1em;
+  --height: 1em;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - var(--width) / 2);
+  width: 1em;
+  height: 1em;
+  background-color: rgb(44, 0, 114);
+  box-shadow: inset 5px 5px 10px rgb(160, 120, 255), 0px 0px 2px white;
+  border-radius: 50px;
+  animation: 1.5s ease-in 0s infinite running jump2;
+}
+
+#third {
+  transform: rotate(90deg);
+}
+
+#third::before {
+  --width: 1em;
+  --height: 1em;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - var(--width) / 2);
+  width: 1em;
+  height: 1em;
+  background-color: rgb(44, 0, 114);
+  box-shadow: inset 5px 5px 10px rgb(160, 120, 255), 0px 0px 2px white;
+  border-radius: 50px;
+  animation: 1.6s ease-in 0s infinite running jump2;
+}
+
+.loader::after {
+  --width: 1em;
+  --height: 1em;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - var(--width) / 2);
+  width: 1em;
+  height: 1em;
+  background-color: rgb(44, 0, 114);
+  box-shadow: inset 5px 5px 10px rgb(160, 120, 255), 0px 0px 2px white;
+  border-radius: 50px;
+  animation: 1.2s ease-in 1s alternate infinite running jump2;
+}
+
+@keyframes first682 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0deg);
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(180deg);
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jump2 {
+  0% {
+    top: 100%;
+  }
+
+  25% {
+    top: 230%;
+  }
+
+  50% {
+    top: 100%;
+  }
+
+  75% {
+    height: 0.6em;
+  }
+
+  100% {
+    height: 1em;
+  }
+}
+/* CSS adicional para ocultar el elemento después de la animación */
+.hidden {
+  display: none;
+}
+
+.container {
+  margin-top: 10%;
+  flex-wrap: nowrap;
+  display: flex;
+}
+
+.card {
+  margin: 10px;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+  margin: auto;
+}
+
+.Btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
+}
+
+.svgIcon {
+  fill: #2196f3;
+}
+
+.icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid #2196f3;
+  border-left: 2px solid #2196f3;
+  border-right: 2px solid #2196f3;
+}
+
+.tooltip {
+  position: absolute;
+  right: -80px;
+  opacity: 0;
+  background-color: rgb(12, 12, 12);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: rgb(12, 12, 12);
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  left: -5%;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .tooltip {
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover {
+  background-color: #2196f3;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .icon2 {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.Btn:hover .svgIcon {
+  fill: black;
+  animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+#checklist {
+  --background: #fff;
+  --text: #414856;
+  --check: #4f29f0;
+  --disabled: #c3c8de;
+  --width: 100px;
+  --height: 180px;
+  --border-radius: 10px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  padding: 30px 85px;
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+#checklist label {
+  color: var(--text);
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  width: fit-content;
+  transition: color 0.3s ease;
+  margin-right: 20px;
+}
+
+#checklist label::before,
+#checklist label::after {
+  content: "";
+  position: absolute;
+}
+
+#checklist label::before {
+  height: 2px;
+  width: 8px;
+  left: -27px;
+  background: var(--check);
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+#checklist label:after {
+  height: 4px;
+  width: 4px;
+  top: 8px;
+  left: -25px;
+  border-radius: 50%;
+}
+
+#checklist input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  height: 15px;
+  width: 15px;
+  outline: none;
+  border: 0;
+  margin: 0 15px 0 0;
+  cursor: pointer;
+  background: var(--background);
+  display: grid;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#checklist input[type="checkbox"]::before,
+#checklist input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  top: auto;
+  background: var(--check);
+  border-radius: 2px;
+}
+
+#checklist input[type="checkbox"]::before {
+  width: 0px;
+  right: 60%;
+  transform-origin: right bottom;
+}
+
+#checklist input[type="checkbox"]::after {
+  width: 0px;
+  left: 40%;
+  transform-origin: left bottom;
+}
+
+#checklist input[type="checkbox"]:checked::before {
+  animation: check-01 0.4s ease forwards;
+}
+
+#checklist input[type="checkbox"]:checked::after {
+  animation: check-02 0.4s ease forwards;
+}
+
+#checklist input[type="checkbox"]:checked + label {
+  color: var(--disabled);
+  animation: move 0.3s ease 0.1s forwards;
+}
+
+#checklist input[type="checkbox"]:checked + label::before {
+  background: var(--disabled);
+  animation: slice 0.4s ease forwards;
+}
+
+#checklist input[type="checkbox"]:checked + label::after {
+  animation: firework 0.5s ease forwards 0.1s;
+}
+
+@keyframes move {
+  50% {
+    padding-left: 8px;
+    padding-right: 0px;
+  }
+
+  100% {
+    padding-right: 4px;
+  }
+}
+
+@keyframes slice {
+  60% {
+    width: 100%;
+    left: 4px;
+  }
+
+  100% {
+    width: 100%;
+    left: -2px;
+    padding-left: 0;
+  }
+}
+
+@keyframes check-01 {
+  0% {
+    width: 4px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  50% {
+    width: 0px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  51% {
+    width: 0px;
+    top: 8px;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    width: 5px;
+    top: 8px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes check-02 {
+  0% {
+    width: 4px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  50% {
+    width: 0px;
+    top: auto;
+    transform: rotate(0);
+  }
+
+  51% {
+    width: 0px;
+    top: 8px;
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    width: 10px;
+    top: 8px;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes firework {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0,
+      0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
+      14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
+      -14px -8px 0 0px #4f29f0;
+  }
+}
+
+.recomendaciones {
+  position: relative;
+  top: 50px;
+  display: grid;
+  place-content: center;
+  margin: auto;
+}
+
+#checklist {
+  position: relative;
+  display: grid;
+  place-content: center;
+  margin: auto;
+  top: 100px;
+  bottom: 10px;
+  width: 40%;
+}
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: 6px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #4d4d4d;
+  background-color: #ffff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+.example-2 .icon-content a[data-social="spotify"] .filled,
+.example-2 .icon-content a[data-social="spotify"] ~ .tooltip {
+  background-color: #1db954;
+}
+.example-2 .icon-content a[data-social="pinterest"] .filled,
+.example-2 .icon-content a[data-social="pinterest"] ~ .tooltip {
+  background-color: #bd081c;
+}
+.example-2 .icon-content a[data-social="dribbble"] .filled,
+.example-2 .icon-content a[data-social="dribbble"] ~ .tooltip {
+  background-color: #ea4c89;
+}
+.example-2 .icon-content a[data-social="telegram"] .filled,
+.example-2 .icon-content a[data-social="telegram"] ~ .tooltip {
+  background-color: #0088cc;
+}
+
+.spotify {
+  /* position: relative;
+  right: 70px; */
+  position: fixed;
+  top: 15%;
+  margin: 0px;
+}
+
+.tooltip {
+  display: block;
+}
+
+.Rflex {
+  display: flex;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    zoom: 78%;
+  }
+}
